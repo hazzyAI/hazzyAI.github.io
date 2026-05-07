@@ -273,11 +273,14 @@
         <div class="pipeline-box">
           <p class="pipeline-label">실서비스 탐지 구조</p>
           <div class="pipeline-steps">
-            <div class="pipeline-step step-1">URL 특성 + HTML 특성 추출 (~180개)</div>
+            <div class="pipeline-step step-1">URL 특성 추출 (상시)</div>
+            <div class="step-arrow">↓ HTML 수집 시도</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+              <div class="pipeline-step step-1" style="font-size:0.75rem;">✓ 성공 → URL + HTML<br><span style="opacity:0.7;">~180개 특성</span></div>
+              <div class="pipeline-step step-3" style="font-size:0.75rem;">✗ 실패 → URL만<br><span style="opacity:0.7;">Fallback</span></div>
+            </div>
             <div class="step-arrow">↓</div>
             <div class="pipeline-step step-2">Feature Selection → 예측 수행</div>
-            <div class="step-arrow">↓ HTML 수집 불가 시</div>
-            <div class="pipeline-step step-3">URL 특성만으로 예측 (Fallback)</div>
           </div>
         </div>
         <div class="project-metrics">
@@ -362,7 +365,7 @@
         <p class="comp-prize">🥈 우수상</p>
         <p class="comp-name">스마트축사 데이터 활용대회</p>
         <p class="comp-org">과학기술정보통신부 · NIA · SK주식회사 · 2022.01</p>
-        <p class="comp-desc">CCTV 영상에서 한우 발정 행동을 인식하는 인스턴스 세그멘테이션 모델 개발. 흑백 변환·채도 분리 등 다양한 이미지 전처리 실험 후 YOLOv5 · Mask R-CNN · Swin Transformer를 비교하여 Swin Transformer 채택 (Weighted mAP <strong>0.973</strong>). 연구 결과 KSC 2023 학술발표.</p>
+        <p class="comp-desc">축사 환경에서 CCTV 영상으로 발정 상태인 소를 자동 판별하여 적기에 번식 관리를 할 수 있도록 하는 대회. 흑백 변환·채도 채널 분리 등 다양한 이미지 전처리 조합을 실험하고, YOLOv5 · Mask R-CNN · Swin Transformer 모델을 비교하여 Swin Transformer 채택 (Weighted mAP <strong>0.973</strong>). 연구 결과 KSC 2023 학술발표.</p>
         <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">Swin Transformer</span><span class="tag">Instance Segmentation</span><span class="tag">Computer Vision</span></div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI" target="_blank">⬡ GitHub</a>
@@ -375,7 +378,7 @@
         <p class="comp-prize">🥇 1위</p>
         <p class="comp-name">바이오AI융합 해커톤</p>
         <p class="comp-org">DACON · 2022.11 — 2022.12</p>
-        <p class="comp-desc">항체 의약품 개발에 활용되는 단백질 간 수소 결합 거리(h_bond_distance) 예측 회귀 태스크. 딥러닝(LSTM-bid) 대비 성능이 낮은 상황에서, BioPython으로 아미노산 서열의 물리·화학적 특성 112개를 추출하고 CatBoost 앙상블을 적용하여 Private RMSE <strong>2.00866</strong> 달성 (베이스라인 4.39 대비 54% 개선). 연구 결과 AAiCON 2023 학술발표.</p>
+        <p class="comp-desc">항체-항원 간 수소 결합 거리를 정밀 예측하여 항체 의약품 개발의 소요 시간과 비용을 줄이기 위한 대회. 딥러닝 기반 베이스라인(LSTM-bid RMSE 4.39) 대비 성능 향상이 과제였으며, BioPython으로 아미노산 서열의 물리·화학적 특성 112개를 추출하고 CatBoost 앙상블을 적용하여 Private RMSE <strong>2.00866</strong> 달성 (54% 개선). 연구 결과 AAiCON 2023 학술발표.</p>
         <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">Ensemble</span><span class="tag">Feature Extraction</span><span class="tag">Protein</span></div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI/BIOAI-Competition" target="_blank">⬡ GitHub</a>
@@ -405,7 +408,7 @@
         <p class="comp-prize">🥈 우수상</p>
         <p class="comp-name">바이오AI융합 경진대회</p>
         <p class="comp-org">충남대학교 · 신테카바이오(주) · 2021.12</p>
-        <p class="comp-desc">256×256 유전자 발현 이미지 기반 알츠하이머 발병 예측. 비공개 단백질 유전자 데이터를 CNN으로 학습. 팀 SD501.</p>
+        <p class="comp-desc">유전자 정보의 개인정보 보호를 위해 유전자 발현 데이터를 256×256 이미지 형태로 변환한 뒤, 이를 분류하여 알츠하이머 발병을 예측하는 모델을 개발하는 대회. 비공개 처리된 단백질 유전자 이미지 데이터를 CNN으로 학습하여 분류. 팀 SD501.</p>
         <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">CNN</span><span class="tag">Medical AI</span><span class="tag">Genomics</span></div>
         <div class="card-btn-row">
           <button class="cert-btn" onclick="openModal('cert_bioai')">📄 상장</button>
