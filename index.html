@@ -81,8 +81,26 @@
     .step-3 { background: #F0FDF4; color: #166534; }
     .step-arrow { text-align: center; font-size: 0.65rem; color: var(--ink-light); }
 
+    /* RESEARCH */
+    #research { background: var(--bg); }
+    .research-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; max-width: 860px; }
+    .research-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.28rem 0.7rem; border-radius: 99px; background: #EFF6FF; color: #1E40AF; margin-bottom: 0.25rem; }
+    .research-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.25; }
+    .research-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.75; }
+    .cascade-wrap { display: flex; flex-direction: column; gap: 0; }
+    .cascade-step { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: start; }
+    .cascade-num { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 0.15rem; }
+    .cascade-num-1 { background: #EEF0FF; color: var(--accent); }
+    .cascade-num-2 { background: #FFF7ED; color: #C2410C; }
+    .cascade-num-3 { background: #F0FDF4; color: #166534; }
+    .cascade-body { padding-bottom: 1.25rem; border-left: 1px dashed var(--border); padding-left: 0.75rem; margin-left: -0.75rem; }
+    .cascade-step:last-child .cascade-body { border-left: none; padding-bottom: 0; }
+    .cascade-name { font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+    .cascade-detail { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
+    .cascade-tag { display: inline-flex; font-size: 0.68rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; background: var(--tag-bg); color: var(--tag-text); padding: 0.18rem 0.5rem; border-radius: 4px; margin-right: 0.3rem; margin-top: 0.35rem; }
+
     /* COMPETITIONS */
-    #competitions { background: var(--bg); }
+    #competitions { background: var(--surface); }
     .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
     .comp-group-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); padding: 0.3rem 0; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
     .comp-group-label:not(:first-child) { margin-top: 2rem; }
@@ -196,6 +214,7 @@
   <ul class="nav-links">
     <li><a href="#profile">Profile</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#competitions">Competitions</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#patents">Patents</a></li>
@@ -269,10 +288,10 @@
         <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행 (서비스 최초 탑재)</span>
         <p class="project-desc">
           자체 수집 데이터로 피싱 탐지 ML 모델을 설계·개발하여 누적 다운로드 50만+ 서비스에 최초 탑재했습니다.
-          URL·HTML에서 약 180개 특성을 추출하고 Feature Selection으로 유의미한 특성을 선별하여 예측을 수행하며,
-          HTML 수집이 불가한 환경에서는 URL 특성만으로 동작하는 Fallback 구조를 설계했습니다.
+          URL·HTML에서 약 180개 특성을 추출하고 Feature Selection으로 <strong>유의미한 80개 특성을 선별</strong>,
+          단일 CatBoost 모델로 예측을 수행합니다. HTML 수집이 불가한 환경에서는 URL 특성만으로 동작하는 Fallback 구조를 설계했습니다.
           온디바이스 경량화를 위해 Mobile용 ONNX 변환 및 원본 Python 출력값과의 정합성 검증을 거쳐
-          Android 온디바이스 추론을 구현했습니다. 모델 실험 추적에는 MLflow를 SDK 형태로 탑재하여 운영합니다.
+          Android 온디바이스 추론을 구현했습니다.
         </p>
         <div class="pipeline-box">
           <p class="pipeline-label">실서비스 탐지 구조</p>
@@ -280,19 +299,22 @@
             <div class="pipeline-step step-1">URL 특성 추출 (상시)</div>
             <div class="step-arrow">↓ HTML 수집 시도</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
-              <div class="pipeline-step step-1" style="font-size:0.75rem;">✓ 성공 → URL + HTML<br><span style="opacity:0.7;">~180개 특성</span></div>
+              <div class="pipeline-step step-1" style="font-size:0.75rem;">✓ 성공 → URL + HTML<br><span style="opacity:0.7;">~180개 추출</span></div>
               <div class="pipeline-step step-3" style="font-size:0.75rem;">✗ 실패 → URL만<br><span style="opacity:0.7;">Fallback</span></div>
             </div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-2">Feature Selection → 예측 수행</div>
+            <div class="pipeline-step step-2">Feature Selection → 80개 선정</div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-3">CatBoost 단일 모델 → ONNX 추론</div>
           </div>
         </div>
         <div class="project-metrics">
           <div class="metric"><span class="metric-val">F1 <span class="warm">94%</span></span><span class="metric-label">모델 성능</span></div>
+          <div class="metric"><span class="metric-val"><span class="warm">80</span>개</span><span class="metric-label">선별 특성 수</span></div>
           <div class="metric"><span class="metric-val">10<span class="warm">ms</span></span><span class="metric-label">추론 시간/샘플</span></div>
         </div>
         <div class="tag-list">
-          <span class="tag">Ensemble Models</span><span class="tag">Boosting Models</span>
+          <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
           <span class="tag">ONNX Runtime</span><span class="tag">Android</span>
           <span class="tag">MLflow</span><span class="tag">SHAP</span>
         </div>
@@ -322,7 +344,7 @@
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
         </div>
         <div class="tag-list">
-          <span class="tag">Ensemble Models</span><span class="tag">Boosting Models</span>
+          <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
           <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span>
           <span class="tag">ONNX Runtime</span><span class="tag">HMAC Auth</span><span class="tag">JS 난독화</span>
         </div>
@@ -336,6 +358,72 @@
 
     <!-- 논문 연구 프로젝트 -->
 </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-label reveal">Research</p>
+    <h2 class="section-title reveal">진행 중인 연구</h2>
+
+    <div class="research-card reveal">
+      <div>
+        <span class="research-badge">🔬 TIPS Deeptech R&amp;D · 진행 중</span>
+        <h3 class="research-title">Cascade 기반 멀티스테이지 피싱 탐지 연구</h3>
+      </div>
+      <p class="research-desc">
+        실서비스에 탑재된 단일 CatBoost 모델의 한계를 넘어, 탐지 정확도를 고도화하기 위한 3단계 Cascade 구조를 연구합니다.
+        단계별로 서로 다른 분석 관점을 적용하여 앞 단계에서 판별하지 못한 케이스를 다음 단계에서 심층 분석하는 방식으로,
+        탐지율과 처리 효율을 동시에 높이는 것이 목표입니다.
+      </p>
+
+      <div>
+        <p class="pipeline-label" style="margin-bottom:1rem;">3단계 Cascade 구조</p>
+        <div class="cascade-wrap">
+
+          <div class="cascade-step">
+            <div class="cascade-num cascade-num-1">1</div>
+            <div class="cascade-body">
+              <p class="cascade-name">피싱 패턴 특성 기반 탐지</p>
+              <p class="cascade-detail">URL 구조·HTML DOM에서 추출한 피싱 패턴 특성으로 경량 분류. 명확한 피싱/정상 케이스를 저비용으로 빠르게 처리하며, 판별 불가 케이스만 다음 단계로 전달합니다.</p>
+              <span class="cascade-tag">Feature Engineering</span><span class="cascade-tag">CatBoost</span>
+            </div>
+          </div>
+
+          <div class="cascade-step">
+            <div class="cascade-num cascade-num-2">2</div>
+            <div class="cascade-body">
+              <p class="cascade-name">보안 취약점 분석 (OWASP)</p>
+              <p class="cascade-detail">OWASP 취약점 기준을 적용하여 사이트의 보안 취약점 특성을 분석. 피싱 패턴만으로는 판별하기 어려운 정교한 피싱 사이트를 보안 관점에서 추가 탐지합니다.</p>
+              <span class="cascade-tag">OWASP</span><span class="cascade-tag">Security Feature</span>
+            </div>
+          </div>
+
+          <div class="cascade-step">
+            <div class="cascade-num cascade-num-3">3</div>
+            <div class="cascade-body">
+              <p class="cascade-name">자연어 처리 모델 (BERT)</p>
+              <p class="cascade-detail">페이지 텍스트 콘텐츠를 BERT 기반 모델로 의미론적으로 분석. 시각적·구조적으로 정상처럼 위장된 피싱 사이트를 콘텐츠 의미 수준에서 탐지합니다.</p>
+              <span class="cascade-tag">BERT</span><span class="cascade-tag">NLP</span><span class="cascade-tag">Fine-tuning</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Cascade Architecture</span><span class="tag">CatBoost</span>
+        <span class="tag">OWASP</span><span class="tag">BERT</span><span class="tag">NLP</span>
+        <span class="tag">Phishing Detection</span>
+      </div>
+      <p class="note-muted">코드 비공개 (R&amp;D 과제) · <a href="https://github.com/hazzyAI/Deeptech_Pillsang_AI" target="_blank" style="color:var(--accent);text-decoration:none;">⬡ GitHub (구조 공개)</a></p>
+    </div>
 
   </div>
 </section>
