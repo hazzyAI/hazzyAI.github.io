@@ -84,6 +84,8 @@
     /* COMPETITIONS */
     #competitions { background: var(--bg); }
     .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+    .comp-group-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); padding: 0.3rem 0; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .comp-group-label:not(:first-child) { margin-top: 2rem; }
     .comp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; transition: all 0.2s; }
     .comp-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.07); }
     .comp-type { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
@@ -204,9 +206,9 @@
     <h1 class="hero-name">Jungmin Ha</h1>
     <p class="hero-name-ko">하정민</p>
     <p class="hero-desc">
-다양한 도메인 데이터에 맞는 AI 모델을 설계한 경험이 있는 AI 엔지니어 하정민입니다.<br>
-      특히 <strong>누적 다운로드 50만+ 어플에 AI 모델을 탑재·서비스한 경험</strong>이 있으며,
-      다양한 경진대회를 통해 바이오·농업·의료 등 여러 도메인의 예측 모델을 구성한 경험이 있습니다.
+바이오·농업·의료 등 다양한 도메인에서 AI 모델을 설계하고 실서비스에 배포한 AI 엔지니어입니다.<br>
+      특히 <strong>누적 다운로드 50만+ 앱에 AI 모델을 최초 탑재·운영</strong>하였으며,
+      여러 AI 경진대회를 통해 예측 모델 설계부터 성능 최적화까지 폭넓게 경험했습니다.
     </p>
     <div class="hero-stat-row">
       <div class="hero-stat">
@@ -261,11 +263,11 @@
         </div>
         <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행 (서비스 최초 탑재)</span>
         <p class="project-desc">
-          자사 수집 데이터로 학습한 피싱 탐지 ML 모델을 설계·개발하여 50만+ 다운로드 서비스에 최초 탑재했습니다.
-          URL·HTML에서 약 180개 특성을 추출하고 Feature Selection을 거쳐 예측을 수행하며,
-          HTML 수집 불가 시 URL 특성만으로 동작하는 Fallback 구조를 설계했습니다.
-          핵심 작업은 온디바이스 경량화로, Mobile용 ONNX 변환 및 원본 Python 출력값과의 검증을 수행하고
-          안드로이드 온디바이스 추론을 구현했습니다. MLOps 전 과정(MLflow, GitHub Actions CI/CD, Firebase OTA)을 단독 설계·운영합니다.
+          자체 수집 데이터로 피싱 탐지 ML 모델을 설계·개발하여 누적 다운로드 50만+ 서비스에 최초 탑재했습니다.
+          URL·HTML에서 약 180개 특성을 추출하고 Feature Selection으로 유의미한 특성을 선별하여 예측을 수행하며,
+          HTML 수집이 불가한 환경에서는 URL 특성만으로 동작하는 Fallback 구조를 설계했습니다.
+          온디바이스 경량화를 위해 Mobile용 ONNX 변환 및 원본 Python 출력값과의 정합성 검증을 거쳐
+          Android 온디바이스 추론을 구현했습니다. MLOps 전 과정(MLflow, GitHub Actions CI/CD, Firebase OTA)을 단독 설계·운영합니다.
         </p>
         <div class="pipeline-box">
           <p class="pipeline-label">실서비스 탐지 구조</p>
@@ -298,12 +300,12 @@
         <div>
           <span class="project-badge badge-soon">🔵 출시 예정 · Chrome Extension</span>
           <h3 class="project-title">필상 AI 피싱 탐지</h3>
-          <p class="project-subtitle">Chrome Web Store 심사 제출 완료 · 이달 말 출시 예정</p>
+          <p class="project-subtitle">Chrome Web Store 심사 제출 완료 · 출시 준비 중</p>
         </div>
         <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행</span>
         <p class="project-desc">
-          피싱 탐지 Chrome 확장프로그램을 처음부터 단독 개발했습니다.
-          URL·HTML 특성 중 Feature Selection을 통해 의미 있는 80개 특성 조합을 도출하고, 해당 특성으로 예측 모델을 학습했습니다.
+          피싱 탐지 Chrome 확장프로그램을 기획부터 배포까지 단독 개발했습니다.
+          URL·HTML 특성에 Feature Selection을 적용해 최적 80개 특성을 선별하고, 해당 특성으로 예측 모델을 학습했습니다.
           Web용 ONNX 변환 및 원본 Python 출력값과의 검증을 수행하고, Manifest V3 기반으로 실시간 URL 탐지 기능을 구현했습니다.
         </p>
         <div class="project-metrics">
@@ -336,18 +338,20 @@
   <div class="section-inner">
     <p class="section-label reveal">Competitions</p>
     <h2 class="section-title reveal">경진대회 수상 · 교외 3관 / 교내 2관</h2>
+
+    <p class="comp-group-label reveal">교외대회</p>
     <div class="comp-grid">
 
       <div class="comp-card reveal">
-        <p class="comp-type type-external">🏢 기업 주관 · DACON</p>
-        <p class="comp-prize">🥇 1위 <span style="font-size:1rem;color:var(--ink-muted);">/ 13팀</span></p>
-        <p class="comp-name">바이오AI융합 해커톤</p>
-        <p class="comp-org">DACON · 2022.11 — 2022.12</p>
-        <p class="comp-desc">단백질-단백질 수소 결합 거리 예측 태스크. Protein Feature Extraction으로 물리·화학적 특성을 수치화하고 앙상블 모델로 Private RMSE <strong>2.04</strong> 달성 (LSTM-bid 4.39 대비). 연구 결과는 AAiCON 2023 논문으로 발표.</p>
-        <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">Ensemble</span><span class="tag">Feature Extraction</span><span class="tag">Protein</span></div>
+        <p class="comp-type type-external">🏢 기업 주관 · KT · IITP</p>
+        <p class="comp-prize">🥉 3위 · 정보통신기획평가원 원장상</p>
+        <p class="comp-name">AI 대학원 챌린지 with KT 믿:음</p>
+        <p class="comp-org">KT · IITP · 팀명: 파더테레사 · 2023.08</p>
+        <p class="comp-desc">공개 데이터가 없는 의료 도메인에서 병원 사이트 직접 크롤링으로 학습 데이터를 구축하고 LLM 기반 데이터 증강 적용. T5 파인튜닝으로 의료 특화 LLM 개발. 증상 입력 → 후보 질병 리스트 출력 → 추가 질문으로 진단을 세분화하는 대화형 구조 설계.</p>
+        <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">LLM Fine-tuning</span><span class="tag">T5</span><span class="tag">NLP</span><span class="tag">Data Augmentation</span></div>
         <div class="card-btn-row">
-          <button class="cert-btn" onclick="openModal('cert_dacon')">📄 인증서</button>
-          <a class="github-btn" href="https://github.com/hazzyAI" target="_blank">⬡ GitHub</a>
+          <button class="cert-btn" onclick="openModal('cert_kt')">📷 현장 사진</button>
+          <a class="github-btn" href="https://github.com/hazzyAI/KT-AI-Competition" target="_blank">⬡ GitHub</a>
         </div>
       </div>
 
@@ -356,7 +360,7 @@
         <p class="comp-prize">🥈 우수상</p>
         <p class="comp-name">스마트축사 데이터 활용대회</p>
         <p class="comp-org">과학기술정보통신부 · NIA · SK주식회사 · 2022.01</p>
-        <p class="comp-desc">한우 발정 탐지 객체 탐지 모델 개발. YOLOv5 · Mask R-CNN · Swin Transformer 비교 실험 후 Swin Transformer 채택 (Weighted mAP <strong>0.973</strong>). 연구 결과 KSC 2023 논문 게재.</p>
+        <p class="comp-desc">한우 발정 탐지를 위한 인스턴스 세그멘테이션 모델 개발. YOLOv5 · Mask R-CNN · Swin Transformer 비교 실험 후 Swin Transformer 채택 (Weighted mAP <strong>0.973</strong>). 연구 결과 KSC 2023 학술발표.</p>
         <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">Swin Transformer</span><span class="tag">Instance Segmentation</span><span class="tag">Computer Vision</span></div>
         <div class="card-btn-row">
           <button class="cert-btn" onclick="openModal('cert_smartfarm')">📄 인증서</button>
@@ -365,17 +369,22 @@
       </div>
 
       <div class="comp-card reveal">
-        <p class="comp-type type-external">🏢 기업 주관 · KT · IITP</p>
-        <p class="comp-prize">🥉 3위 · 정보통신기획평가원 원장상</p>
-        <p class="comp-name">AI 대학원 챌린지 with KT 믿:음</p>
-        <p class="comp-org">KT · IITP · 팀명: 파더테레사 · 2023.08</p>
-        <p class="comp-desc">공개 데이터 미존재 도메인 — 직접 크롤링으로 학습 데이터 구축, LLM 기반 데이터 증강 적용. T5 파인튜닝으로 의료 특화 LLM 개발. 증상 입력 → 후보 질병 리스트 출력 → 추가 질문으로 세분화하는 대화형 진단 구조 설계.</p>
-        <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">LLM Fine-tuning</span><span class="tag">T5</span><span class="tag">NLP</span><span class="tag">Data Augmentation</span></div>
+        <p class="comp-type type-external">🏢 기업 주관 · DACON</p>
+        <p class="comp-prize">🥇 1위</p>
+        <p class="comp-name">바이오AI융합 해커톤</p>
+        <p class="comp-org">DACON · 2022.11 — 2022.12</p>
+        <p class="comp-desc">단백질-단백질 수소 결합 거리 예측. Protein Feature Extraction으로 물리·화학적 특성을 수치화하고 앙상블 모델로 Private RMSE <strong>2.00866</strong> 달성 (LSTM-bid 4.39 대비 54% 개선). 연구 결과 AAiCON 2023 학술발표.</p>
+        <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">Ensemble</span><span class="tag">Feature Extraction</span><span class="tag">Protein</span></div>
         <div class="card-btn-row">
-          <button class="cert-btn" onclick="openModal('cert_kt')">📷 현장 사진</button>
-          <a class="github-btn" href="https://github.com/hazzyAI" target="_blank">⬡ GitHub</a>
+          <button class="cert-btn" onclick="openModal('cert_dacon')">📄 인증서</button>
+          <a class="github-btn" href="https://github.com/hazzyAI/BIOAI-Competition" target="_blank">⬡ GitHub</a>
         </div>
       </div>
+
+    </div>
+
+    <p class="comp-group-label reveal">교내대회</p>
+    <div class="comp-grid">
 
       <div class="comp-card reveal">
         <p class="comp-type type-internal">🎓 교내 · 충남대</p>
@@ -394,7 +403,7 @@
         <p class="comp-prize">🥈 우수상</p>
         <p class="comp-name">바이오AI융합 경진대회</p>
         <p class="comp-org">충남대학교 · 신테카바이오(주) · 2021.12</p>
-        <p class="comp-desc">256×256 유전자 발현 이미지 기반 알츠하이머 발병 예측. 보안 처리된 단백질 유전자 데이터를 CNN으로 학습. 팀 SD501.</p>
+        <p class="comp-desc">256×256 유전자 발현 이미지 기반 알츠하이머 발병 예측. 비공개 단백질 유전자 데이터를 CNN으로 학습. 팀 SD501.</p>
         <div class="tag-list" style="margin-bottom:0.5rem;"><span class="tag">CNN</span><span class="tag">Medical AI</span><span class="tag">Genomics</span></div>
         <div class="card-btn-row">
           <button class="cert-btn" onclick="openModal('cert_bioai')">📄 상장</button>
@@ -536,7 +545,7 @@
               <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.65;">피싱 탐지 ML 모델 설계·개발 및 Android/Chrome 멀티플랫폼 배포. MLOps 파이프라인 단독 구축·운영.</p>
               <div style="margin-top:0.75rem;padding:0.75rem 1rem;background:var(--bg);border-radius:6px;border-left:3px solid var(--accent);">
                 <p style="font-size:0.72rem;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem;">TIPS Deeptech · TIPS Scale-up R&amp;D 과제 수행 중</p>
-                <p style="font-size:0.8rem;color:var(--ink-muted);line-height:1.6;">피싱 탐지 고도화를 위한 Cascade 기반 멀티 모델 연구 (Deeptech). 실서비스 확장 및 성능 개선을 위한 후속 연구 수행 중 (Scale-up). 데이터 수집 제외 전 과정 단독 수행.</p>
+                <p style="font-size:0.8rem;color:var(--ink-muted);line-height:1.6;">피싱 탐지 고도화를 위한 Cascade 기반 멀티 모델 연구 (Deeptech). 실서비스 확장 및 성능 개선을 위한 후속 연구 수행 중 (Scale-up). 데이터 수집을 제외한 전 과정 단독 수행.</p>
               </div>
             </div>
           </div>
