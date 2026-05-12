@@ -295,30 +295,23 @@
         <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행 (서비스 최초 탑재)</span>
         <p class="project-desc">
           자체 수집 데이터로 피싱 탐지 ML 모델을 설계·개발하여 누적 다운로드 50만+ 서비스에 최초 탑재했습니다.
-          URL·HTML에서 약 180개 특성을 추출하고 Feature Selection으로 <strong>유의미한 80개 특성을 선별</strong>,
-          단일 CatBoost 모델로 예측을 수행합니다. HTML 수집이 불가한 환경에서는 URL 특성만으로 동작하는 Fallback 구조를 설계했습니다.
-          온디바이스 경량화를 위해 Mobile용 ONNX 변환 및 원본 Python 출력값과의 정합성 검증을 거쳐
-          Android 온디바이스 추론을 구현했습니다.
+          웹 페이지에서 다수의 특성을 추출하고 Feature Selection으로 유의미한 특성을 선별, 단일 모델로 예측을 수행합니다.
+          환경에 따라 수집 가능한 데이터가 달라지는 상황을 고려한 Fallback 구조를 설계했으며,
+          온디바이스 추론을 위한 경량화 및 정합성 검증을 거쳐 Android에 배포했습니다.
         </p>
         <div class="pipeline-box">
           <p class="pipeline-label">실서비스 탐지 구조</p>
           <div class="pipeline-steps">
-            <div class="pipeline-step step-1">URL 특성 추출 (상시)</div>
-            <div class="step-arrow">↓ HTML 수집 시도</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
-              <div class="pipeline-step step-1" style="font-size:0.75rem;">✓ 성공 → URL + HTML<br><span style="opacity:0.7;">~180개 추출</span></div>
-              <div class="pipeline-step step-3" style="font-size:0.75rem;">✗ 실패 → URL만<br><span style="opacity:0.7;">Fallback</span></div>
-            </div>
+            <div class="pipeline-step step-1">특성 추출</div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-2">Feature Selection → 80개 선정</div>
+            <div class="pipeline-step step-2">Feature Selection</div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-3">CatBoost 단일 모델 → ONNX 추론</div>
+            <div class="pipeline-step step-3">CatBoost → ONNX 온디바이스 추론</div>
           </div>
         </div>
         <div class="project-metrics">
-          <div class="metric"><span class="metric-val">F1 <span class="warm">94%</span></span><span class="metric-label">모델 성능</span></div>
-          <div class="metric"><span class="metric-val"><span class="warm">80</span>개</span><span class="metric-label">선별 특성 수</span></div>
           <div class="metric"><span class="metric-val">10<span class="warm">ms</span></span><span class="metric-label">추론 시간/샘플</span></div>
+          <div class="metric"><span class="metric-val"><span class="warm">50만</span>+</span><span class="metric-label">누적 다운로드</span></div>
         </div>
         <div class="tag-list">
           <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
@@ -342,18 +335,17 @@
         <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행</span>
         <p class="project-desc">
           Chrome Web Store 출시를 위한 피싱 탐지 확장프로그램을 기획부터 심사 제출까지 단독 개발했습니다.
-          서버 전문가와 협업하여 <strong>서버 DB 화이트/블랙리스트 1차 조회 → 미등록 URL은 온디바이스 ONNX 모델 추론</strong>의 2단계 탐지 구조를 설계했습니다.
-          서버 API 통신에는 HMAC 서명 기반 인증을 적용하여 위변조를 방지하고, 확장프로그램 전체 JavaScript 코드에 난독화를 적용해 보안성을 강화했습니다.
+          서버 전문가와 협업하여 서버 조회와 온디바이스 모델 추론을 결합한 2단계 탐지 구조를 설계했습니다.
+          서버 API 통신 보안 및 클라이언트 코드 보호를 위한 보안 처리를 적용했습니다.
         </p>
         <div class="project-metrics">
-          <div class="metric"><span class="metric-val" style="font-size:1rem;">2단계</span><span class="metric-label">DB 조회 → 모델 추론</span></div>
-          <div class="metric"><span class="metric-val" style="font-size:1rem;">HMAC</span><span class="metric-label">서명 기반 API 인증</span></div>
+          <div class="metric"><span class="metric-val" style="font-size:1rem;">2단계</span><span class="metric-label">서버 조회 + 온디바이스</span></div>
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
         </div>
         <div class="tag-list">
           <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
           <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span>
-          <span class="tag">ONNX Runtime</span><span class="tag">HMAC Auth</span><span class="tag">JS 난독화</span>
+          <span class="tag">ONNX Runtime</span><span class="tag">Chrome Extension</span>
         </div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI/pillsang-chrome-extension" target="_blank">⬡ GitHub</a>
@@ -399,8 +391,8 @@
           <div class="cascade-step">
             <div class="cascade-num cascade-num-1">1</div>
             <div class="cascade-body">
-              <p class="cascade-name">피싱 패턴 특성 기반 탐지</p>
-              <p class="cascade-detail">URL 구조·HTML DOM에서 추출한 피싱 패턴 특성으로 경량 분류. 명확한 피싱/정상 케이스를 저비용으로 빠르게 처리하며, 판별 불가 케이스만 다음 단계로 전달합니다.</p>
+              <p class="cascade-name">특성 기반 경량 탐지</p>
+              <p class="cascade-detail">웹 페이지에서 추출한 특성으로 경량 분류. 명확한 케이스를 저비용으로 빠르게 처리하며, 판별 불가 케이스만 다음 단계로 전달합니다.</p>
               <span class="cascade-tag">Feature Engineering</span><span class="cascade-tag">CatBoost</span>
             </div>
           </div>
@@ -408,18 +400,18 @@
           <div class="cascade-step">
             <div class="cascade-num cascade-num-2">2</div>
             <div class="cascade-body">
-              <p class="cascade-name">보안 취약점 분석 (OWASP)</p>
-              <p class="cascade-detail">OWASP 취약점 기준을 적용하여 사이트의 보안 취약점 특성을 분석. 피싱 패턴만으로는 판별하기 어려운 정교한 피싱 사이트를 보안 관점에서 추가 탐지합니다.</p>
-              <span class="cascade-tag">OWASP</span><span class="cascade-tag">Security Feature</span>
+              <p class="cascade-name">보안 관점 분석</p>
+              <p class="cascade-detail">보안 기준을 적용한 추가 분석으로 1단계에서 판별하기 어려운 정교한 피싱 사이트를 탐지합니다.</p>
+              <span class="cascade-tag">Security Analysis</span>
             </div>
           </div>
 
           <div class="cascade-step">
             <div class="cascade-num cascade-num-3">3</div>
             <div class="cascade-body">
-              <p class="cascade-name">자연어 처리 모델 (BERT)</p>
-              <p class="cascade-detail">페이지 텍스트 콘텐츠를 BERT 기반 모델로 의미론적으로 분석. 시각적·구조적으로 정상처럼 위장된 피싱 사이트를 콘텐츠 의미 수준에서 탐지합니다.</p>
-              <span class="cascade-tag">BERT</span><span class="cascade-tag">NLP</span><span class="cascade-tag">Fine-tuning</span>
+              <p class="cascade-name">자연어 처리 모델</p>
+              <p class="cascade-detail">페이지 콘텐츠를 딥러닝 언어 모델로 의미론적으로 분석하여 구조적으로 정상처럼 위장된 사이트를 최종 탐지합니다.</p>
+              <span class="cascade-tag">NLP</span><span class="cascade-tag">Fine-tuning</span>
             </div>
           </div>
 
@@ -428,8 +420,7 @@
 
       <div class="tag-list">
         <span class="tag">Cascade Architecture</span><span class="tag">CatBoost</span>
-        <span class="tag">OWASP</span><span class="tag">BERT</span><span class="tag">NLP</span>
-        <span class="tag">Phishing Detection</span>
+        <span class="tag">NLP</span><span class="tag">Security AI</span>
       </div>
       <div class="card-btn-row">
         <a class="github-btn" href="https://github.com/hazzyAI/Deeptech_Pillsang_AI" target="_blank">⬡ GitHub</a>
