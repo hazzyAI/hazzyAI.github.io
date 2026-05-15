@@ -407,56 +407,53 @@
 
     <div class="research-card reveal">
       <div>
-        <span class="research-badge">🔬 TIPS Deeptech R&amp;D · 진행 중</span>
-        <h3 class="research-title">실서비스 모델 고도화를 위한 Cascade 연구</h3>
+        <span class="research-badge">🔬 TIPS Deeptech R&amp;D · 완료</span>
+        <h3 class="research-title">Cascade 기반 멀티스테이지 피싱 탐지 연구</h3>
       </div>
-      <span class="solo-badge" style="width:fit-content;">⚡ 단일 모델의 한계를 3단계 Cascade 구조로 극복</span>
       <p class="research-desc">
-        온디바이스 탑재를 목적으로, 단계별로 규모가 커지는 모델을 순차 적용해 속도와 정확도를 동시에 개선하는 Cascade 구조를 연구했습니다.
-        명확한 케이스는 앞 단계에서 빠르게 처리하고, 판별이 어려운 케이스만 다음 단계로 전달하는 방식으로
-        앙상블 대비 <strong>3.4배 빠른 추론 속도</strong>와 <strong>F1 0.9401</strong>을 달성했습니다.
+        실서비스 탑재 모델의 한계를 넘어 탐지 정확도와 추론 효율을 동시에 개선하기 위한 3단계 Cascade 구조를 설계·구현했습니다.
       </p>
 
       <div>
         <p class="pipeline-label" style="margin-bottom:1rem;">3단계 Cascade 구조</p>
         <div class="cascade-wrap">
-
           <div class="cascade-step">
             <div class="cascade-num cascade-num-1">1</div>
             <div class="cascade-body">
-              <p class="cascade-name">경량 모델 기반 1차 탐지</p>
-              <p class="cascade-detail">명확한 케이스를 저비용으로 빠르게 처리. 판별이 어려운 케이스만 다음 단계로 전달합니다.</p>
+              <p class="cascade-name">URL + HTML 패턴 기반 1차 탐지</p>
+              <p class="cascade-detail">Boosting Model · 명확한 케이스 저비용 처리</p>
             </div>
           </div>
-
           <div class="cascade-step">
             <div class="cascade-num cascade-num-2">2</div>
             <div class="cascade-body">
-              <p class="cascade-name">중형 모델 기반 정밀 분석</p>
-              <p class="cascade-detail">1단계에서 판별하지 못한 케이스를 보안 관점에서 심층 분석합니다.</p>
+              <p class="cascade-name">OWASP 보안 취약점 기반 정밀 탐지</p>
+              <p class="cascade-detail">SHAP 기반 피처 선택 · 보안 취약점 탐지 모델</p>
             </div>
           </div>
-
           <div class="cascade-step">
             <div class="cascade-num cascade-num-3">3</div>
             <div class="cascade-body">
-              <p class="cascade-name">대형 모델 기반 최종 판별</p>
-              <p class="cascade-detail">가장 판별이 어려운 케이스에 대해 가장 정밀한 분석으로 최종 결과를 도출합니다.</p>
+              <p class="cascade-name">외부 데이터 기반 최종 탐지</p>
+              <p class="cascade-detail">CNN · 구조적으로 정상 위장된 사이트 최종 탐지</p>
             </div>
           </div>
-
         </div>
       </div>
 
-      <div class="project-metrics" style="background:var(--bg);">
-        <div class="metric"><span class="metric-val">10.75<span class="warm">ms</span></span><span class="metric-label">추론 시간/샘플</span></div>
-        <div class="metric"><span class="metric-val">F1 <span class="blue">0.9401</span></span><span class="metric-label">탐지 정확도</span></div>
-        <div class="metric"><span class="metric-val"><span class="warm">3.4</span>×</span><span class="metric-label">앙상블 대비 속도</span></div>
+      <div>
+        <p class="pipeline-label" style="margin-bottom:0.5rem;">핵심 기여</p>
+        <ul style="font-size:0.82rem;color:var(--ink-muted);line-height:1.8;padding-left:1.1rem;margin:0;">
+          <li>3단계 Cascade 아키텍처 단독 설계 및 구현 — confidence threshold 기반 다음 단계 전달 구조</li>
+          <li>OWASP 기준 보안 취약점 피처 설계 — SHAP 기반 피처 중요도 분석으로 핵심 피처 선별 및 경량화</li>
+          <li>온디바이스 배포 최적화 — ONNX 변환 및 Android 탑재, Firebase 기반 OTA 모델 업데이트 구현</li>
+        </ul>
       </div>
 
       <div class="tag-list">
         <span class="tag">Cascade Architecture</span><span class="tag">Boosting Model</span>
-        <span class="tag">CNN</span><span class="tag">SHAP</span><span class="tag">ONNX Runtime</span><span class="tag">On-Device</span>
+        <span class="tag">OWASP</span><span class="tag">SHAP</span><span class="tag">CNN</span>
+        <span class="tag">ONNX Runtime</span><span class="tag">On-Device</span>
       </div>
       <div class="card-btn-row">
         <a class="github-btn" href="https://github.com/hazzyAI/Deeptech_Pillsang_AI" target="_blank">⬡ GitHub</a>
@@ -471,34 +468,33 @@
         <h3 class="research-title">멀티모달 RAG 기반 웹사이트 자동 분류 연구</h3>
       </div>
       <p class="research-desc">
-        URL 하나를 입력받아 웹사이트를 <strong>악성 · 도박 · 성인 · 가상화폐 · 정상</strong> 5개 카테고리로 자동 분류하고 판별 근거를 자연어로 설명하는 멀티모달 RAG 시스템을 단독 설계·구현했습니다. 싹다잡아 앱을 통해 수집된 데이터를 라벨링하고 학습에 활용하였습니다.
+        URL 입력 시 웹사이트를 <strong>악성 · 도박 · 성인 · 가상화폐 · 정상</strong> 5개 카테고리로 자동 분류하고 판별 근거를 자연어로 생성하는 Multimodal RAG 시스템을 단독 설계·구현했습니다. 싹다잡아 앱 수집 데이터를 기반으로 4개 독립 VectorDB를 구성하고 Llama3.1 70B QLoRA 파인튜닝을 통해 도메인 특화 분류기를 개발합니다.
       </p>
 
       <div>
-        <p class="pipeline-label" style="margin-bottom:0.75rem;">4-모달리티 설계</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem;">
-          <div class="pipeline-step step-1" style="font-size:0.76rem;"><strong>URL</strong><br><span style="opacity:0.7;font-size:0.7rem;">독립 VectorDB · Novelty</span></div>
-          <div class="pipeline-step step-1" style="font-size:0.76rem;"><strong>HTML</strong><br><span style="opacity:0.7;font-size:0.7rem;">DOM 구조 기반 슬라이싱</span></div>
-          <div class="pipeline-step step-2" style="font-size:0.76rem;"><strong>OCR 텍스트</strong><br><span style="opacity:0.7;font-size:0.7rem;">PaddleOCR</span></div>
-          <div class="pipeline-step step-3" style="font-size:0.76rem;"><strong>Raw 이미지</strong><br><span style="opacity:0.7;font-size:0.7rem;">SigLIP 직접 임베딩</span></div>
+        <p class="pipeline-label" style="margin-bottom:0.75rem;">4-Modality VectorDB 아키텍처</p>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <div class="pipeline-step step-1" style="font-size:0.79rem;"><strong>URL</strong> &nbsp;·&nbsp; BGE-M3 임베딩 · 독립 VectorDB 구성 &nbsp;<span style="color:var(--accent);font-size:0.72rem;font-weight:700;">Novelty</span></div>
+          <div class="pipeline-step step-2" style="font-size:0.79rem;"><strong>HTML</strong> &nbsp;·&nbsp; DOM 노이즈 제거 후 슬라이싱 · 임베딩 대상과 LLM 입력 메타데이터 분리 설계</div>
+          <div class="pipeline-step step-3" style="font-size:0.79rem;"><strong>OCR</strong> &nbsp;·&nbsp; PaddleOCR + Bounding Box 기반 Reading Order 재구성 → BGE-M3 임베딩</div>
+          <div class="pipeline-step" style="font-size:0.79rem;background:#F5F3FF;color:#6D28D9;"><strong>Image</strong> &nbsp;·&nbsp; SigLIP 직접 임베딩 · Claude API 기반 오프라인 Captioning 메타데이터 구성</div>
         </div>
-        <div class="pipeline-step step-2" style="font-size:0.8rem;text-align:center;">Prompt-based Naive Fusion → Llama3.1 70B (QLoRA) → 분류 + 자연어 설명</div>
       </div>
 
       <div>
-        <p class="pipeline-label" style="margin-bottom:0.5rem;">핵심 설계 결정</p>
-        <ul style="font-size:0.82rem;color:var(--ink-muted);line-height:1.75;padding-left:1.1rem;margin:0;">
-          <li>이미지 직접 임베딩 — VLM 요약 방식 배제 (VisRAG ICLR 2025 · ColPali 2024)</li>
-          <li>HTML DOM 구조 기반 슬라이싱 (HtmlRAG WWW 2025 · W-RAC 2026)</li>
-          <li>URL 독립 VectorDB 구성 — 기존 연구 선례 없는 Novelty</li>
-          <li>추론 시 Llama3.1 컨텍스트 사용량 3% 이내 달성</li>
+        <p class="pipeline-label" style="margin-bottom:0.5rem;">핵심 기여</p>
+        <ul style="font-size:0.82rem;color:var(--ink-muted);line-height:1.8;padding-left:1.1rem;margin:0;">
+          <li>URL 독립 VectorDB 설계 — URL을 독립 모달리티로 분리, 기존 Multimodal RAG 연구 선례 없는 구성. Ablation Study로 모달리티별 기여도 정량 측정 설계</li>
+          <li>웹사이트 특화 HTML 슬라이싱 전략 — 0~100만 자 극단적 분포 대응. 임베딩 대상(원문)과 LLM 입력(요약 메타데이터) 의도적 분리 설계</li>
+          <li>한국어 웹 특화 OCR 파이프라인 — 도박 은어 등 핵심 텍스트가 이미지로 삽입된 경우 대응. PaddleOCR + Bounding Box 기반 Reading Order 재구성 직접 구현</li>
+          <li>실서비스 데이터 기반 VectorDB 구축 — 싹다잡아 앱 실수집 데이터 기반 한국어 도메인 특화 VectorDB 단독 구축</li>
         </ul>
       </div>
 
       <div class="tag-list">
         <span class="tag">Multimodal RAG</span><span class="tag">Llama3.1 70B</span>
         <span class="tag">QLoRA</span><span class="tag">BGE-M3</span><span class="tag">SigLIP</span>
-        <span class="tag">Qdrant</span><span class="tag">PaddleOCR</span><span class="tag">Claude API</span>
+        <span class="tag">Qdrant</span><span class="tag">PaddleOCR</span><span class="tag">Claude API</span><span class="tag">HNSW</span>
       </div>
       <div class="card-btn-row">
         <span class="cert-btn" style="cursor:default;">🔒 코드 비공개 (국가 R&D 과제)</span>
