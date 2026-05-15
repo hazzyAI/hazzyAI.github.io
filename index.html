@@ -106,16 +106,16 @@
     /* COMPETITIONS */
     /* COMPETITIONS — accordion */
     #competitions { background: var(--surface); }
-    .comp-group-label { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-light); padding: 0.25rem 0; margin-bottom: 0.65rem; margin-top: 2.25rem; border-bottom: 1px solid var(--border); }
+    .comp-group-label { font-family: 'Pretendard', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); padding: 0.25rem 0; margin-bottom: 0.9rem; margin-top: 2.5rem; border-bottom: 2px solid var(--accent); display: inline-block; }
     .comp-group-label:first-of-type { margin-top: 0; }
     .comp-list { display: flex; flex-direction: column; gap: 0.6rem; }
     .comp-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); transition: box-shadow 0.2s; }
     .comp-item.open { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
     .comp-header { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; cursor: pointer; user-select: none; transition: background 0.15s; }
     .comp-header:hover { background: rgba(67,97,238,0.03); }
-    .comp-logo-wrap { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
-    .comp-logo-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
-    .comp-logo-fallback { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px; border: 1px solid var(--border); background: var(--tag-bg); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; font-weight: 700; color: var(--accent); text-align: center; line-height: 1.2; padding: 2px; }
+    .comp-logo-wrap { width: 60px; height: 60px; flex-shrink: 0; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .comp-logo-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+    .comp-logo-fallback { width: 60px; height: 60px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); background: var(--tag-bg); display: flex; align-items: center; justify-content: center; font-family: 'Pretendard', sans-serif; font-size: 0.65rem; font-weight: 700; color: var(--accent); text-align: center; line-height: 1.2; padding: 4px; }
     .comp-header-info { flex: 1; min-width: 0; }
     .comp-type { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.2rem; }
     .type-external { color: var(--accent-warm); }
@@ -719,7 +719,7 @@
     </div>
 
     <div style="height:2rem;"></div>
-    <p style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-top:3rem;margin-bottom:1rem;" class="reveal">Patents · 등록 2건</p>
+    <p style="font-family:'Pretendard',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin-top:3rem;margin-bottom:1rem;border-bottom:2px solid var(--accent);display:inline-block;padding-bottom:0.25rem;" class="reveal">Patents</p>
     <div class="patent-wrap reveal">
       <div class="patent-row">
         <div>
@@ -756,13 +756,12 @@
 <section id="career">
   <div class="section-inner">
     <p class="section-label reveal">Career & Education</p>
-    <h2 class="section-title reveal">경력 및 학력</h2>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="reveal">
 
       <!-- 경력 -->
       <div>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem;">Experience</p>
+        <p style="font-family:'Pretendard',sans-serif;font-size:0.95rem;font-weight:700;color:var(--accent);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.25rem;border-bottom:2px solid var(--accent);display:inline-block;padding-bottom:0.2rem;">Career</p>
         <div style="display:flex;flex-direction:column;position:relative;">
 
           <!-- 타임라인 선 -->
@@ -799,7 +798,7 @@
             <div style="width:16px;height:16px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:3px;border:2px solid var(--surface);"></div>
             <div>
               <p style="font-size:0.72rem;font-family:'JetBrains Mono',monospace;color:var(--ink-light);margin-bottom:0.25rem;">2022.03 — 2022.04</p>
-              <p style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">인턴 <span style="font-size:0.72rem;font-weight:600;background:#F0FDF4;color:#166534;padding:0.15rem 0.5rem;border-radius:4px;margin-left:0.3rem;">Intern</span></p>
+              <p style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">인턴</p>
               <p style="font-size:0.875rem;color:var(--ink-muted);margin-bottom:0.4rem;">신테카바이오 · AI 연구</p>
               <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.65;">유전체 정보 기반 알츠하이머 이진분류기 개발. CNN 모델링 및 Fine-tuning으로 성능 개선. 실제 데이터 및 추가 데이터를 활용한 모델링 수행.</p>
             </div>
