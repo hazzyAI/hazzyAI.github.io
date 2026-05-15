@@ -29,8 +29,8 @@
     .hero-tagline { font-family: 'Pretendard', sans-serif; font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; line-height: 1.6; color: var(--ink); max-width: 560px; margin-bottom: 1rem; opacity: 0; transform: translateY(16px); animation: fadeUp 0.6s ease forwards 0.35s; }
     .hero-desc { font-size: 0.95rem; line-height: 1.8; color: var(--ink-muted); max-width: 560px; margin-bottom: 1.75rem; opacity: 0; transform: translateY(16px); animation: fadeUp 0.6s ease forwards 0.45s; }
     .hero-desc strong { color: var(--ink); font-weight: 600; }
-    .hero-stat-row { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; transform: translateY(16px); animation: fadeUp 0.6s ease forwards 0.5s; }
-    .hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-stat-row { display: flex; gap: 0; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; transform: translateY(16px); animation: fadeUp 0.6s ease forwards 0.5s; }
+    .hero-stat { display: flex; flex-direction: column; gap: 0.2rem; min-width: 7rem; }
     .hero-stat-num { font-family: 'Pretendard', sans-serif; font-size: 2.1rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
     .hero-stat-num span { color: var(--accent); }
     .hero-stat-label { font-size: 0.75rem; font-weight: 500; color: var(--ink-light); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -249,7 +249,7 @@
     <div class="hero-stat-row">
       <div class="hero-stat">
         <span class="hero-stat-num">2<span>회</span></span>
-        <span class="hero-stat-label">AI 실서비스 배포</span>
+        <span class="hero-stat-label">AI 실서비스</span>
       </div>
       <div class="hero-stat">
         <span class="hero-stat-num">2<span>회</span></span>
