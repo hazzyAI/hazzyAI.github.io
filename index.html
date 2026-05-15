@@ -82,6 +82,13 @@
     .step-2 { background: #FFF7ED; color: #C2410C; }
     .step-3 { background: #F0FDF4; color: #166534; }
     .step-arrow { text-align: center; font-size: 0.65rem; color: var(--ink-light); }
+    .contrib-block { display: flex; flex-direction: column; gap: 0.65rem; }
+    .contrib-title { font-size: 0.84rem; font-weight: 700; color: var(--ink); margin-bottom: 0.18rem; }
+    .contrib-arrow { display: block; font-size: 0.79rem; color: var(--ink-muted); line-height: 1.7; padding-left: 0.4rem; }
+    .contrib-arrow::before { content: '→ '; color: var(--accent); font-weight: 600; }
+    .modality-row { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; font-size: 0.8rem; padding: 0.45rem 0.65rem; border-radius: 5px; align-items: start; }
+    .modality-label { font-weight: 700; color: var(--ink); padding-top: 0.05rem; }
+    .modality-desc { color: var(--ink-muted); line-height: 1.65; }
     .pipeline-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 0.2rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
     .branch-col { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.65rem; }
     .branch-col-left { background: #F9FFFE; border-right: 1px solid var(--border); }
@@ -434,20 +441,30 @@
           <div class="cascade-step">
             <div class="cascade-num cascade-num-3">3</div>
             <div class="cascade-body">
-              <p class="cascade-name">외부 데이터 기반 최종 탐지</p>
-              <p class="cascade-detail">CNN · 구조적으로 정상 위장된 사이트 최종 탐지</p>
+              <p class="cascade-name">구글 검색 결과 기반 최종 탐지</p>
+              <p class="cascade-detail">CNN · 구조적으로 정상 위장 사이트 탐지</p>
             </div>
           </div>
         </div>
       </div>
 
       <div>
-        <p class="pipeline-label" style="margin-bottom:0.5rem;">핵심 기여</p>
-        <ul style="font-size:0.82rem;color:var(--ink-muted);line-height:1.8;padding-left:1.1rem;margin:0;">
-          <li>3단계 Cascade 아키텍처 단독 설계 및 구현 — confidence threshold 기반 다음 단계 전달 구조</li>
-          <li>OWASP 기준 보안 취약점 피처 설계 — SHAP 기반 피처 중요도 분석으로 핵심 피처 선별 및 경량화</li>
-          <li>온디바이스 배포 최적화 — ONNX 변환 및 Android 탑재, Firebase 기반 OTA 모델 업데이트 구현</li>
-        </ul>
+        <p class="pipeline-label" style="margin-bottom:0.65rem;">핵심 기여</p>
+        <div class="contrib-block">
+          <div>
+            <p class="contrib-title">3단계 Cascade 아키텍처 단독 설계 및 구현</p>
+            <span class="contrib-arrow">단계별 confidence threshold 기반 다음 단계 전달 구조 설계</span>
+          </div>
+          <div>
+            <p class="contrib-title">OWASP 기준 보안 취약점 피처 설계</p>
+            <span class="contrib-arrow">SHAP 기반 피처 중요도 분석으로 핵심 피처 선별 및 경량화</span>
+          </div>
+          <div>
+            <p class="contrib-title">온디바이스 배포 최적화</p>
+            <span class="contrib-arrow">ONNX 변환 및 Android 탑재</span>
+            <span class="contrib-arrow">Firebase 기반 OTA 모델 업데이트 구현</span>
+          </div>
+        </div>
       </div>
 
       <div class="tag-list">
@@ -472,23 +489,53 @@
       </p>
 
       <div>
-        <p class="pipeline-label" style="margin-bottom:0.75rem;">4-Modality VectorDB 아키텍처</p>
-        <div style="display:flex;flex-direction:column;gap:0.4rem;">
-          <div class="pipeline-step step-1" style="font-size:0.79rem;"><strong>URL</strong> &nbsp;·&nbsp; BGE-M3 임베딩 · 독립 VectorDB 구성 &nbsp;<span style="color:var(--accent);font-size:0.72rem;font-weight:700;">Novelty</span></div>
-          <div class="pipeline-step step-2" style="font-size:0.79rem;"><strong>HTML</strong> &nbsp;·&nbsp; DOM 노이즈 제거 후 슬라이싱 · 임베딩 대상과 LLM 입력 메타데이터 분리 설계</div>
-          <div class="pipeline-step step-3" style="font-size:0.79rem;"><strong>OCR</strong> &nbsp;·&nbsp; PaddleOCR + Bounding Box 기반 Reading Order 재구성 → BGE-M3 임베딩</div>
-          <div class="pipeline-step" style="font-size:0.79rem;background:#F5F3FF;color:#6D28D9;"><strong>Image</strong> &nbsp;·&nbsp; SigLIP 직접 임베딩 · Claude API 기반 오프라인 Captioning 메타데이터 구성</div>
+        <p class="pipeline-label" style="margin-bottom:0.65rem;">4-Modality VectorDB 아키텍처</p>
+        <div style="display:flex;flex-direction:column;gap:0.35rem;">
+          <div class="modality-row step-1">
+            <span class="modality-label">URL</span>
+            <span class="modality-desc">BGE-M3 임베딩 · 독립 VectorDB 구성<br>기존 Multimodal RAG 연구 선례 없는 <strong>Novelty</strong></span>
+          </div>
+          <div class="modality-row step-2">
+            <span class="modality-label">HTML</span>
+            <span class="modality-desc">DOM 노이즈 제거 후 앞부분 슬라이싱<br>임베딩 대상과 LLM 입력 메타데이터 분리 설계</span>
+          </div>
+          <div class="modality-row step-3">
+            <span class="modality-label">OCR</span>
+            <span class="modality-desc">PaddleOCR + Bounding Box 기반<br>Reading Order 재구성 → BGE-M3 임베딩</span>
+          </div>
+          <div class="modality-row" style="background:#F5F3FF;">
+            <span class="modality-label" style="color:#6D28D9;">Image</span>
+            <span class="modality-desc" style="color:#6D28D9;">SigLIP 직접 임베딩<br>Claude API 기반 오프라인 Captioning 메타데이터 구성</span>
+          </div>
         </div>
       </div>
 
       <div>
-        <p class="pipeline-label" style="margin-bottom:0.5rem;">핵심 기여</p>
-        <ul style="font-size:0.82rem;color:var(--ink-muted);line-height:1.8;padding-left:1.1rem;margin:0;">
-          <li>URL 독립 VectorDB 설계 — URL을 독립 모달리티로 분리, 기존 Multimodal RAG 연구 선례 없는 구성. Ablation Study로 모달리티별 기여도 정량 측정 설계</li>
-          <li>웹사이트 특화 HTML 슬라이싱 전략 — 0~100만 자 극단적 분포 대응. 임베딩 대상(원문)과 LLM 입력(요약 메타데이터) 의도적 분리 설계</li>
-          <li>한국어 웹 특화 OCR 파이프라인 — 도박 은어 등 핵심 텍스트가 이미지로 삽입된 경우 대응. PaddleOCR + Bounding Box 기반 Reading Order 재구성 직접 구현</li>
-          <li>실서비스 데이터 기반 VectorDB 구축 — 싹다잡아 앱 실수집 데이터 기반 한국어 도메인 특화 VectorDB 단독 구축</li>
-        </ul>
+        <p class="pipeline-label" style="margin-bottom:0.65rem;">핵심 기여</p>
+        <div class="contrib-block">
+          <div>
+            <p class="contrib-title">URL 독립 VectorDB 설계</p>
+            <span class="contrib-arrow">URL 문자열을 독립 모달리티로 분리 설계 및 구현</span>
+            <span class="contrib-arrow">기존 Multimodal RAG 연구에서 선례 없는 구성</span>
+            <span class="contrib-arrow">Ablation Study로 모달리티별 기여도 정량 측정 설계</span>
+          </div>
+          <div>
+            <p class="contrib-title">웹사이트 도메인 특화 HTML 슬라이싱 전략 설계</p>
+            <span class="contrib-arrow">웹사이트 HTML 특성상 0 ~ 100만 자 극단적 분포</span>
+            <span class="contrib-arrow">DOM 구조 인식 기반 슬라이싱 전략 직접 설계</span>
+            <span class="contrib-arrow">임베딩 대상(원문)과 LLM 입력(요약 메타데이터) 의도적 분리 설계</span>
+          </div>
+          <div>
+            <p class="contrib-title">한국어 웹 도메인 특화 OCR 파이프라인 설계 및 구현</p>
+            <span class="contrib-arrow">한국 악성 사이트 특성상 도박 은어 등 핵심 텍스트가 이미지로 삽입되는 경우 다수</span>
+            <span class="contrib-arrow">PaddleOCR + Bounding Box 기반 Reading Order 재구성 파이프라인 직접 구현</span>
+          </div>
+          <div>
+            <p class="contrib-title">실서비스 데이터 기반 VectorDB 구축</p>
+            <span class="contrib-arrow">싹다잡아 앱 실수집 데이터 기반 한국어 도메인 특화 VectorDB 단독 구축</span>
+            <span class="contrib-arrow">학술 벤치마크가 아닌 실제 서비스 환경의 카테고리 분포를 반영한 평가 환경 구성</span>
+          </div>
+        </div>
       </div>
 
       <div class="tag-list">
