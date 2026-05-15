@@ -408,12 +408,13 @@
     <div class="research-card reveal">
       <div>
         <span class="research-badge">🔬 TIPS Deeptech R&amp;D · 진행 중</span>
-        <h3 class="research-title">Cascade 기반 멀티스테이지 피싱 탐지 연구</h3>
+        <h3 class="research-title">실서비스 모델 고도화를 위한 Cascade 연구</h3>
       </div>
+      <span class="solo-badge" style="width:fit-content;">⚡ 단일 모델의 한계를 3단계 Cascade 구조로 극복</span>
       <p class="research-desc">
-        실서비스에 탑재된 단일 CatBoost 모델의 한계를 넘어, 탐지 정확도를 고도화하기 위한 3단계 Cascade 구조를 연구합니다.
-        단계별로 서로 다른 분석 관점을 적용하여 앞 단계에서 판별하지 못한 케이스를 다음 단계에서 심층 분석하는 방식으로,
-        탐지율과 처리 효율을 동시에 높이는 것이 목표입니다.
+        온디바이스 탑재를 목적으로, 단계별로 규모가 커지는 모델을 순차 적용해 속도와 정확도를 동시에 개선하는 Cascade 구조를 연구했습니다.
+        명확한 케이스는 앞 단계에서 빠르게 처리하고, 판별이 어려운 케이스만 다음 단계로 전달하는 방식으로
+        앙상블 대비 <strong>3.4배 빠른 추론 속도</strong>와 <strong>F1 0.9401</strong>을 달성했습니다.
       </p>
 
       <div>
@@ -423,36 +424,39 @@
           <div class="cascade-step">
             <div class="cascade-num cascade-num-1">1</div>
             <div class="cascade-body">
-              <p class="cascade-name">특성 기반 경량 탐지</p>
-              <p class="cascade-detail">웹 페이지에서 추출한 특성으로 경량 분류. 명확한 케이스를 저비용으로 빠르게 처리하며, 판별 불가 케이스만 다음 단계로 전달합니다.</p>
-              <span class="cascade-tag">Feature Engineering</span><span class="cascade-tag">CatBoost</span>
+              <p class="cascade-name">경량 모델 기반 1차 탐지</p>
+              <p class="cascade-detail">명확한 케이스를 저비용으로 빠르게 처리. 판별이 어려운 케이스만 다음 단계로 전달합니다.</p>
             </div>
           </div>
 
           <div class="cascade-step">
             <div class="cascade-num cascade-num-2">2</div>
             <div class="cascade-body">
-              <p class="cascade-name">보안 관점 분석</p>
-              <p class="cascade-detail">보안 기준을 적용한 추가 분석으로 1단계에서 판별하기 어려운 정교한 피싱 사이트를 탐지합니다.</p>
-              <span class="cascade-tag">Security Analysis</span>
+              <p class="cascade-name">중형 모델 기반 정밀 분석</p>
+              <p class="cascade-detail">1단계에서 판별하지 못한 케이스를 보안 관점에서 심층 분석합니다.</p>
             </div>
           </div>
 
           <div class="cascade-step">
             <div class="cascade-num cascade-num-3">3</div>
             <div class="cascade-body">
-              <p class="cascade-name">자연어 처리 모델</p>
-              <p class="cascade-detail">페이지 콘텐츠를 딥러닝 언어 모델로 의미론적으로 분석하여 구조적으로 정상처럼 위장된 사이트를 최종 탐지합니다.</p>
-              <span class="cascade-tag">NLP</span><span class="cascade-tag">Fine-tuning</span>
+              <p class="cascade-name">대형 모델 기반 최종 판별</p>
+              <p class="cascade-detail">가장 판별이 어려운 케이스에 대해 가장 정밀한 분석으로 최종 결과를 도출합니다.</p>
             </div>
           </div>
 
         </div>
       </div>
 
+      <div class="project-metrics" style="background:var(--bg);">
+        <div class="metric"><span class="metric-val">10.75<span class="warm">ms</span></span><span class="metric-label">추론 시간/샘플</span></div>
+        <div class="metric"><span class="metric-val">F1 <span class="blue">0.9401</span></span><span class="metric-label">탐지 정확도</span></div>
+        <div class="metric"><span class="metric-val"><span class="warm">3.4</span>×</span><span class="metric-label">앙상블 대비 속도</span></div>
+      </div>
+
       <div class="tag-list">
-        <span class="tag">Cascade Architecture</span><span class="tag">CatBoost</span>
-        <span class="tag">NLP</span><span class="tag">Security AI</span>
+        <span class="tag">Cascade Architecture</span><span class="tag">Boosting Model</span>
+        <span class="tag">CNN</span><span class="tag">SHAP</span><span class="tag">ONNX Runtime</span><span class="tag">On-Device</span>
       </div>
       <div class="card-btn-row">
         <a class="github-btn" href="https://github.com/hazzyAI/Deeptech_Pillsang_AI" target="_blank">⬡ GitHub</a>
