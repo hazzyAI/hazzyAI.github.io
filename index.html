@@ -297,20 +297,23 @@
           누적 다운로드 50만+ 피싱 탐지 보안 앱입니다. 악성 URL을 실시간으로 탐지하는 ML 모델을 직접 설계하여 Android 온디바이스에 최초 탑재·배포했습니다.
         </p>
         <div class="pipeline-box">
-          <p class="pipeline-label">실서비스 탐지 구조</p>
+          <p class="pipeline-label">모델 내부 수행과정</p>
           <div class="pipeline-steps">
-            <div class="pipeline-step step-1">URL로부터 HTML 추출</div>
+            <div class="pipeline-step step-1">URL 입력</div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-2">URL + HTML 특성 추출</div>
+            <div class="pipeline-step step-2">URL로부터 HTML 크롤링</div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-3">모델 예측</div>
+            <div class="pipeline-step step-3">URL + HTML로부터 180개의 특성 추출</div>
             <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-1">결과</div>
+            <div class="pipeline-step step-2">경량화된 부스팅 모델로 예측</div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-1">악성/정상 사이트 결과 확인</div>
           </div>
         </div>
         <div class="project-metrics">
           <div class="metric"><span class="metric-val">10<span class="warm">ms</span></span><span class="metric-label">추론 시간/샘플</span></div>
           <div class="metric"><span class="metric-val"><span class="warm">50만</span>+</span><span class="metric-label">누적 다운로드</span></div>
+          <div class="metric"><span class="metric-val">98<span class="warm">%</span>+</span><span class="metric-label">정확도</span></div>
         </div>
         <div class="tag-list">
           <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
