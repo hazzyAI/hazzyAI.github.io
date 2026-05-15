@@ -130,8 +130,8 @@
     .comp-body-inner { padding-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
     .comp-org { font-size: 0.74rem; color: var(--ink-light); font-family: 'JetBrains Mono', monospace; }
     .comp-theme-box { background: transparent; border: none; padding: 0; }
-    .comp-theme-label { display: none; }
-    .comp-theme-text { font-size: 0.88rem; font-weight: 500; color: var(--ink-light); line-height: 1.6; margin: 0; border-left: 3px solid var(--accent); padding-left: 0.75rem; }
+    .comp-theme-label { display: inline; font-family: 'Pretendard', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--accent); letter-spacing: 0; text-transform: none; margin-bottom: 0; }
+    .comp-theme-text { font-size: 0.88rem; font-weight: 400; color: var(--ink-light); line-height: 1.6; margin: 0; border-left: 3px solid var(--accent); padding-left: 0.75rem; }
     .comp-my-work { font-size: 0.88rem; color: var(--ink); line-height: 1.8; font-weight: 400; }
 
     /* PUBLICATIONS */
@@ -503,10 +503,9 @@
           <div class="comp-body-inner">
             <p class="comp-org">KT · IITP · 2023.08</p>
             <div class="comp-theme-box">
-              <span class="comp-theme-label">대회 주제</span>
-              <p class="comp-theme-text">LLM을 활용해 사회 문제를 해결하는 자유 주제 대회. KT 파운데이션 모델 Mi:dm(T5 기반) 제공.</p>
+              <p class="comp-theme-text"><span class="comp-theme-label">대회 주제 : </span>LLM을 활용해 사회 문제를 해결하는 자유 주제 대회.</p>
             </div>
-            <p class="comp-my-work">의료 접근성 문제에 주목하여, 사용자가 증상을 자연어로 입력하면 가능성 있는 질병 목록을 제시하고 추가 질문으로 진단을 세분화하는 대화형 AI를 개발했습니다. 공개 데이터가 없어 병원 사이트를 직접 크롤링하고 LLM 기반 문장 증강으로 학습 데이터를 구축했습니다.</p>
+            <p class="comp-my-work">사용자가 증상을 채팅형식으로 입력하면 가능성 있는 질병들을 알려주고 관리해주는 LLM 모델 개발</p>
             <div class="tag-list"><span class="tag">LLM Fine-tuning</span><span class="tag">T5</span><span class="tag">NLP</span><span class="tag">Data Augmentation</span></div>
             <div class="card-btn-row">
               <a class="github-btn" href="https://github.com/hazzyAI/KT-AI-Competition" target="_blank" onclick="event.stopPropagation()">⬡ GitHub</a>
