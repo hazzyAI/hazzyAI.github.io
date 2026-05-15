@@ -82,10 +82,16 @@
     .step-2 { background: #FFF7ED; color: #C2410C; }
     .step-3 { background: #F0FDF4; color: #166534; }
     .step-arrow { text-align: center; font-size: 0.65rem; color: var(--ink-light); }
-    .step-branch-row { display: flex; gap: 0.4rem; }
-    .step-branch-row .pipeline-step { flex: 1; font-size: 0.75rem; }
-    .step-branch-yes { background: #F0FDF4; color: #166534; border: 1px dashed #86EFAC; }
-    .step-branch-no { background: #FFF7ED; color: #C2410C; border: 1px dashed #FCA5A5; }
+    .pipeline-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 0.2rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .branch-col { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.65rem; }
+    .branch-col-left { background: #F9FFFE; border-right: 1px solid var(--border); }
+    .branch-col-right { background: #FFFBF7; }
+    .branch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.2rem 0; }
+    .branch-label-yes { color: #166534; }
+    .branch-label-no { color: #C2410C; }
+    .step-branch-yes { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+    .step-branch-no { background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; }
+    .step-end { background: #EEF0FF; color: var(--accent); font-weight: 600; }
 
     /* RESEARCH */
     #research { background: var(--bg); }
@@ -320,8 +326,8 @@
           <div class="metric"><span class="metric-val">98<span class="warm">%</span>+</span><span class="metric-label">정확도</span></div>
         </div>
         <div class="tag-list">
-          <span class="tag">Feature Selection</span><span class="tag">Boosting Model</span><span class="tag">Lightweight</span>
-          <span class="tag">ONNX Runtime</span><span class="tag">On-Device</span><span class="tag">ML-Ops</span>
+          <span class="tag">Feature Extraction</span><span class="tag">Feature Selection</span><span class="tag">Boosting Model</span>
+          <span class="tag">Lightweight</span><span class="tag">ONNX Runtime</span><span class="tag">On-Device</span><span class="tag">ML-Ops</span>
         </div>
         <div class="card-btn-row">
           <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.pillsang.ssagdajabwa" target="_blank">▶ Play Store</a>
@@ -347,17 +353,23 @@
             <div class="pipeline-step step-1">URL 접속 감지</div>
             <div class="step-arrow">↓</div>
             <div class="pipeline-step step-2">서버 DB 조회 (블랙리스트 / 화이트리스트)</div>
-            <div class="step-arrow">↓</div>
-            <div class="step-branch-row">
-              <div class="pipeline-step step-branch-yes">✅ 등록 URL → 즉시 결과 반환</div>
-              <div class="pipeline-step step-branch-no">🔍 미등록 URL → URL + HTML 특성 추출</div>
+            <div class="step-arrow">↓ 분기</div>
+            <div class="pipeline-branch">
+              <div class="branch-col branch-col-left">
+                <span class="branch-label branch-label-yes">✅ 등록 URL</span>
+                <div class="pipeline-step step-branch-yes">즉시 결과 반환</div>
+              </div>
+              <div class="branch-col branch-col-right">
+                <span class="branch-label branch-label-no">🔍 미등록 URL</span>
+                <div class="pipeline-step step-branch-no">URL + HTML 특성 추출</div>
+                <div class="step-arrow">↓</div>
+                <div class="pipeline-step step-branch-no">AI 모델 추론</div>
+                <div class="step-arrow">↓</div>
+                <div class="pipeline-step step-branch-no">DB 적재 (신규 URL 자동 등록)</div>
+                <div class="step-arrow">↓</div>
+                <div class="pipeline-step step-end">위험도별 사용자 표시</div>
+              </div>
             </div>
-            <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-3">AI 모델 추론</div>
-            <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-2">DB 적재 (신규 URL 자동 등록)</div>
-            <div class="step-arrow">↓</div>
-            <div class="pipeline-step step-1">위험도별 사용자 표시</div>
           </div>
         </div>
         <div class="project-metrics">
@@ -365,8 +377,8 @@
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
         </div>
         <div class="tag-list">
-          <span class="tag">Boosting Model</span><span class="tag">Feature Selection</span><span class="tag">Chrome Extension</span>
-          <span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span><span class="tag">Lightweight</span><span class="tag">ML-Ops</span>
+          <span class="tag">Feature Extraction</span><span class="tag">Feature Selection</span><span class="tag">Boosting Model</span>
+          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span><span class="tag">Lightweight</span><span class="tag">ML-Ops</span>
         </div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI/pillsang-chrome-extension" target="_blank">⬡ GitHub</a>
