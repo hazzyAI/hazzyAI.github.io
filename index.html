@@ -65,8 +65,8 @@
     .project-subtitle { font-size: 0.8rem; color: var(--ink-muted); font-weight: 400; margin-top: 0.2rem; }
     .project-desc { font-size: 0.9rem; line-height: 1.75; color: var(--ink-muted); font-weight: 400; }
     .solo-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; font-weight: 600; color: #166534; background: #F0FDF4; padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 0.25rem; }
-    .project-metrics { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
-    .metric { display: flex; flex-direction: column; }
+    .project-metrics { display: flex; justify-content: space-evenly; flex-wrap: wrap; padding: 1.25rem 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
+    .metric { display: flex; flex-direction: column; align-items: center; flex: 1; }
     .metric-val { font-family: 'Pretendard', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
     .metric-val .warm { color: var(--accent-warm); }
     .metric-val .blue { color: var(--accent); }
@@ -316,9 +316,8 @@
           <div class="metric"><span class="metric-val">98<span class="warm">%</span>+</span><span class="metric-label">정확도</span></div>
         </div>
         <div class="tag-list">
-          <span class="tag">CatBoost</span><span class="tag">Feature Selection</span>
-          <span class="tag">ONNX Runtime</span><span class="tag">Android</span>
-          <span class="tag">MLflow</span><span class="tag">SHAP</span>
+          <span class="tag">Feature Selection</span><span class="tag">Boosting Model</span><span class="tag">Lightweight</span>
+          <span class="tag">ONNX Runtime</span><span class="tag">On-Device</span><span class="tag">ML-Ops</span>
         </div>
         <div class="card-btn-row">
           <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.pillsang.ssagdajabwa" target="_blank">▶ Play Store</a>
