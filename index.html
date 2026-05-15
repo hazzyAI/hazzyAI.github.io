@@ -82,6 +82,10 @@
     .step-2 { background: #FFF7ED; color: #C2410C; }
     .step-3 { background: #F0FDF4; color: #166534; }
     .step-arrow { text-align: center; font-size: 0.65rem; color: var(--ink-light); }
+    .step-branch-row { display: flex; gap: 0.4rem; }
+    .step-branch-row .pipeline-step { flex: 1; font-size: 0.75rem; }
+    .step-branch-yes { background: #F0FDF4; color: #166534; border: 1px dashed #86EFAC; }
+    .step-branch-no { background: #FFF7ED; color: #C2410C; border: 1px dashed #FCA5A5; }
 
     /* RESEARCH */
     #research { background: var(--bg); }
@@ -337,6 +341,25 @@
         <p class="project-desc">
           사용자가 사이트 접속을 할 때마다 URL을 실시간으로 분석해 유해 사이트를 자동 감지하는 Chrome 확장프로그램입니다. 서버 DB 조회(블랙리스트/화이트리스트)와 온디바이스 AI 모델 추론을 결합한 2단계 탐지 구조로 설계했으며, 기획부터 Chrome Web Store 심사 제출까지 단독 개발했습니다.
         </p>
+        <div class="pipeline-box">
+          <p class="pipeline-label">탐지 로직</p>
+          <div class="pipeline-steps">
+            <div class="pipeline-step step-1">URL 접속 감지</div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-2">서버 DB 조회 (블랙리스트 / 화이트리스트)</div>
+            <div class="step-arrow">↓</div>
+            <div class="step-branch-row">
+              <div class="pipeline-step step-branch-yes">✅ 등록 URL → 즉시 결과 반환</div>
+              <div class="pipeline-step step-branch-no">🔍 미등록 URL → URL + HTML 특성 추출</div>
+            </div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-3">AI 모델 추론</div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-2">DB 적재 (신규 URL 자동 등록)</div>
+            <div class="step-arrow">↓</div>
+            <div class="pipeline-step step-1">위험도별 사용자 표시</div>
+          </div>
+        </div>
         <div class="project-metrics">
           <div class="metric"><span class="metric-val" style="font-size:1rem;">2단계</span><span class="metric-label">서버 조회 + 온디바이스</span></div>
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
