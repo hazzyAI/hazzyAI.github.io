@@ -434,14 +434,14 @@
           <div class="cascade-step">
             <div class="cascade-num cascade-num-2">2</div>
             <div class="cascade-body">
-              <p class="cascade-name">OWASP 보안 취약점 기반 정밀 탐지</p>
+              <p class="cascade-name">보안 관점 정밀 탐지</p>
               <p class="cascade-detail">SHAP 기반 피처 선택 · 보안 취약점 탐지 모델</p>
             </div>
           </div>
           <div class="cascade-step">
             <div class="cascade-num cascade-num-3">3</div>
             <div class="cascade-body">
-              <p class="cascade-name">구글 검색 결과 기반 최종 탐지</p>
+              <p class="cascade-name">외부 컨텍스트 기반 최종 탐지</p>
               <p class="cascade-detail">CNN · 구조적으로 정상 위장 사이트 탐지</p>
             </div>
           </div>
@@ -456,7 +456,7 @@
             <span class="contrib-arrow">단계별 confidence threshold 기반 다음 단계 전달 구조 설계</span>
           </div>
           <div>
-            <p class="contrib-title">OWASP 기준 보안 취약점 피처 설계</p>
+            <p class="contrib-title">보안 관점 피처 설계</p>
             <span class="contrib-arrow">SHAP 기반 피처 중요도 분석으로 핵심 피처 선별 및 경량화</span>
           </div>
           <div>
@@ -469,7 +469,7 @@
 
       <div class="tag-list">
         <span class="tag">Cascade Architecture</span><span class="tag">Boosting Model</span>
-        <span class="tag">OWASP</span><span class="tag">SHAP</span><span class="tag">CNN</span>
+        <span class="tag">SHAP</span><span class="tag">CNN</span>
         <span class="tag">ONNX Runtime</span><span class="tag">On-Device</span>
       </div>
       <div class="card-btn-row">
@@ -493,7 +493,7 @@
         <div style="display:flex;flex-direction:column;gap:0.35rem;">
           <div class="modality-row step-1">
             <span class="modality-label">URL</span>
-            <span class="modality-desc">BGE-M3 임베딩 · 독립 VectorDB 구성<br>기존 Multimodal RAG 연구 선례 없는 <strong>Novelty</strong></span>
+            <span class="modality-desc">BGE-M3 임베딩 · 독립 VectorDB 구성<br>독립 모달리티로 분리 설계</span>
           </div>
           <div class="modality-row step-2">
             <span class="modality-label">HTML</span>
@@ -516,7 +516,6 @@
           <div>
             <p class="contrib-title">URL 독립 VectorDB 설계</p>
             <span class="contrib-arrow">URL 문자열을 독립 모달리티로 분리 설계 및 구현</span>
-            <span class="contrib-arrow">기존 Multimodal RAG 연구에서 선례 없는 구성</span>
             <span class="contrib-arrow">Ablation Study로 모달리티별 기여도 정량 측정 설계</span>
           </div>
           <div>
