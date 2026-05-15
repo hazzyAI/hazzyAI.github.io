@@ -41,7 +41,7 @@
     .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
     section { padding: 5rem 3rem; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 700; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
     .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 2.75rem; color: var(--ink-muted); }
     .divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
 
@@ -265,7 +265,7 @@
     </div>
     <div class="hero-cta">
       <a href="https://github.com/hazzyAI" target="_blank" class="btn btn-primary">GitHub →</a>
-      <a href="mailto:gkckdals3@naver.com" class="btn btn-outline">gkckdals3@naver.com</a>
+      <a href="mailto:gkckdals3@naver.com" class="btn btn-outline" style="background:#EEF0FF;color:var(--accent);border-color:#C7CEFB;">gkckdals3@naver.com</a>
     </div>
   </div>
   <div style="flex-shrink:0;display:flex;align-items:center;justify-content:center;">
@@ -660,7 +660,7 @@
 <!-- PUBLICATIONS & PATENTS -->
 <section id="publications">
   <div class="section-inner">
-    <p class="section-label reveal">Papers</p>
+    <p class="section-label reveal">Publications</p>
     <div class="pub-list">
 
       <div class="pub-card reveal">
@@ -718,7 +718,7 @@
     </div>
 
     <div style="height:2rem;"></div>
-    <p class="comp-group-label reveal">특허 등록 2건</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-top:3rem;margin-bottom:1rem;" class="reveal">Patents · 등록 2건</p>
     <div class="patent-wrap reveal">
       <div class="patent-row">
         <div>
@@ -783,13 +783,24 @@
           </div>
 
           <!-- 충남대 산학협력단 -->
-          <div style="display:flex;gap:1.25rem;position:relative;">
+          <div style="display:flex;gap:1.25rem;margin-bottom:2rem;position:relative;">
             <div style="width:16px;height:16px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:3px;border:2px solid var(--surface);"></div>
             <div>
               <p style="font-size:0.72rem;font-family:'JetBrains Mono',monospace;color:var(--ink-light);margin-bottom:0.25rem;">2023.09 — 2024.01</p>
               <p style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">전임 연구원</p>
               <p style="font-size:0.875rem;color:var(--ink-muted);margin-bottom:0.4rem;">충남대학교 산학협력단 · R&amp;D</p>
               <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.65;">단백질-단백질 상호작용 예측 연구. 특허 출원 및 학술논문 게재.</p>
+            </div>
+          </div>
+
+          <!-- 신테카바이오 인턴 -->
+          <div style="display:flex;gap:1.25rem;position:relative;">
+            <div style="width:16px;height:16px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:3px;border:2px solid var(--surface);"></div>
+            <div>
+              <p style="font-size:0.72rem;font-family:'JetBrains Mono',monospace;color:var(--ink-light);margin-bottom:0.25rem;">2022.03 — 2022.04</p>
+              <p style="font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">인턴 <span style="font-size:0.72rem;font-weight:600;background:#F0FDF4;color:#166534;padding:0.15rem 0.5rem;border-radius:4px;margin-left:0.3rem;">Intern</span></p>
+              <p style="font-size:0.875rem;color:var(--ink-muted);margin-bottom:0.4rem;">신테카바이오 · AI 연구</p>
+              <p style="font-size:0.82rem;color:var(--ink-muted);line-height:1.65;">유전체 정보 기반 알츠하이머 이진분류기 개발. CNN 모델링 및 Fine-tuning으로 성능 개선. 실제 데이터 및 추가 데이터를 활용한 모델링 수행.</p>
             </div>
           </div>
 
