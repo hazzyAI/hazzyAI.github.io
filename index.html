@@ -89,8 +89,8 @@
     .modality-row { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; font-size: 0.8rem; padding: 0.45rem 0.65rem; border-radius: 5px; align-items: center; }
     .modality-label { font-weight: 700; color: var(--ink); padding-top: 0.05rem; }
     .modality-desc { color: var(--ink-muted); line-height: 1.65; }
-    .pipeline-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 0.2rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .branch-col { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.65rem; }
+    .pipeline-branch { display: flex; align-items: flex-start; gap: 0; margin-top: 0.2rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .branch-col { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.65rem; flex: 1; }
     .branch-col-left { background: #F9FFFE; border-right: 1px solid var(--border); }
     .branch-col-right { background: #FFFBF7; }
     .branch-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.2rem 0; }
@@ -99,6 +99,10 @@
     .step-branch-yes { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
     .step-branch-no { background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; }
     .step-end { background: #EEF0FF; color: var(--accent); font-weight: 600; }
+    .ext-shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+    .ext-shot { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .ext-shot img { width: 100%; height: 270px; object-fit: contain; object-position: top center; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .ext-shot-label { font-size: 1rem; font-weight: 700; text-align: center; line-height: 1.4; }
 
     /* RESEARCH */
     #research { background: var(--bg); }
@@ -203,16 +207,14 @@
     .modal-caption { font-size: 0.8rem; color: var(--ink-muted); text-align: center; font-style: italic; }
 
     /* CONTACT */
-    #contact { background: var(--ink); }
-    #contact .section-label { color: #60A5FA; }
-    #contact .section-title { color: #fff; margin-bottom: 0.75rem; }
-    .contact-desc { font-size: 1rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; max-width: 440px; }
+    #contact { background: var(--surface); }
+    #contact .section-title { color: var(--ink); margin-bottom: 0.75rem; }
     .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.72rem 1.4rem; border-radius: 6px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
-    .contact-link-primary { background: #fff; color: var(--ink); }
-    .contact-link-primary:hover { background: #F0F4FF; transform: translateY(-1px); }
-    .contact-link-ghost { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15); }
-    .contact-link-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
+    .contact-link-primary { background: var(--ink); color: #fff; }
+    .contact-link-primary:hover { background: #333; transform: translateY(-1px); }
+    .contact-link-ghost { background: transparent; color: var(--ink-muted); border: 1.5px solid var(--border); }
+    .contact-link-ghost:hover { background: var(--bg); border-color: var(--ink-muted); transform: translateY(-1px); }
     footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 3rem; text-align: center; }
     footer p { font-size: 0.78rem; color: rgba(255,255,255,0.22); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -343,17 +345,85 @@
       </div>
 
       <!-- 필상 크롬 확장 -->
-      <!-- TODO: 서비스명 확정 시 "필상 AI 유해사이트 탐지" 수정 -->
       <div class="project-card card-chrome reveal">
         <div>
-          <span class="project-badge badge-soon">🔵 출시 예정 · Chrome Extension</span>
+          <span class="project-badge badge-live">🟢 스토어 출시 · Chrome Extension</span>
           <h3 class="project-title">필상 AI 유해사이트 탐지</h3>
-          <p class="project-subtitle">Chrome Web Store 심사 제출 완료 · 출시 준비 중</p>
+          <p class="project-subtitle">Chrome Web Store 출시 완료</p>
         </div>
-        <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행</span>
+        <span class="solo-badge">⚡ 기획 · 모델 설계 · 개발 · 출시 전 과정 단독 수행</span>
         <p class="project-desc">
-          사용자가 사이트 접속을 할 때마다 URL을 실시간으로 분석해 유해 사이트를 자동 감지하는 Chrome 확장프로그램입니다. 서버 DB 조회(블랙리스트/화이트리스트)와 온디바이스 AI 모델 추론을 결합한 2단계 탐지 구조로 설계했으며, 기획부터 Chrome Web Store 심사 제출까지 단독 개발했습니다.
+          사이트 접속 시마다 URL을 실시간으로 분석해 유해 사이트를 자동 감지하는 Chrome 확장프로그램입니다. 서버 DB 조회(블랙리스트/화이트리스트)와 온디바이스 AI 추론을 결합한 2단계 탐지 구조로 피싱 사이트를 탐지하며, NSFW 이미지 분류 모델을 탑재해 웹 페이지 내 성인 이미지를 자동으로 블러 처리합니다.
         </p>
+        <!-- 케이스별 스크린샷 (전체 11장) -->
+        <div class="pipeline-box" style="display:flex;flex-direction:column;gap:0.9rem;">
+
+          <!-- 팝업 · 보안 탭 -->
+          <div>
+            <p class="pipeline-label" style="margin-bottom:0.45rem;">팝업 · 보안 탭 (4단계 판정)</p>
+            <div class="ext-shots" style="grid-template-columns:repeat(5,1fr);gap:0.4rem;">
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/01.png" alt="안전(DB)">
+                <span class="ext-shot-label" style="color:#166534;">🟢 안전<br><small style="font-weight:400;color:var(--ink-light);">DB 등록</small></span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/02.png" alt="안전(AI)">
+                <span class="ext-shot-label" style="color:#166534;">🟢 안전<br><small style="font-weight:400;color:var(--ink-light);">AI 추론</small></span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/03.png" alt="비교적 안전">
+                <span class="ext-shot-label" style="color:#1E40AF;">🔵 비교적<br>안전</span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/06.png" alt="유해 의심">
+                <span class="ext-shot-label" style="color:#C2410C;">🟠 유해<br>의심</span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/07.png" alt="유해 사이트">
+                <span class="ext-shot-label" style="color:#991B1B;">🔴 유해<br>사이트</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 자동 액션 -->
+          <div>
+            <p class="pipeline-label" style="margin-bottom:0.45rem;">자동 액션 (임계값 초과 시)</p>
+            <div class="ext-shots" style="grid-template-columns:1fr 1fr;gap:0.5rem;">
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/04.png" alt="Chrome 알림">
+                <span class="ext-shot-label" style="color:#C2410C;">⚠️ Chrome 알림<br><small style="font-weight:400;color:var(--ink-light);">확률 ≥ 70%</small></span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/05.png" alt="사이트 차단">
+                <span class="ext-shot-label" style="color:#991B1B;">🚫 사이트 차단<br><small style="font-weight:400;color:var(--ink-light);">확률 ≥ 80%</small></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 히스토리 & 설정 -->
+          <div>
+            <p class="pipeline-label" style="margin-bottom:0.45rem;">히스토리 & 설정</p>
+            <div class="ext-shots" style="grid-template-columns:repeat(4,1fr);gap:0.4rem;">
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/08.png" alt="일간 통계">
+                <span class="ext-shot-label">📊 일간 통계</span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/09.png" alt="주간 통계">
+                <span class="ext-shot-label">📊 주간 통계</span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/10.png" alt="위험 URL 필터">
+                <span class="ext-shot-label">🔴 카테고리별 조회</span>
+              </div>
+              <div class="ext-shot">
+                <img src="https://raw.githubusercontent.com/hazzyAI/pillsang-chrome-extension/main/assets/screenshots/11.png" alt="설정">
+                <span class="ext-shot-label">⚙️ 알림·차단<br>설정</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
         <div class="pipeline-box">
           <p class="pipeline-label">전체 예측 로직</p>
           <div class="pipeline-steps">
@@ -372,7 +442,7 @@
                 <div class="step-arrow">↓</div>
                 <div class="pipeline-step step-branch-no">AI 모델 추론</div>
                 <div class="step-arrow">↓</div>
-                <div class="pipeline-step step-branch-no">DB 적재 (신규 URL 자동 등록)</div>
+                <div class="pipeline-step step-branch-no">DB 적재 (수집 → 라벨링 → 모델 재학습)</div>
                 <div class="step-arrow">↓</div>
                 <div class="pipeline-step step-end">위험도별 사용자 표시</div>
               </div>
@@ -382,10 +452,12 @@
         <div class="project-metrics">
           <div class="metric"><span class="metric-val" style="font-size:1rem;">2단계</span><span class="metric-label">서버 조회 + 온디바이스</span></div>
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
+          <div class="metric"><span class="metric-val" style="font-size:0.88rem;">NSFW</span><span class="metric-label">이미지 자동 블러</span></div>
         </div>
         <div class="tag-list">
           <span class="tag">Feature Extraction</span><span class="tag">Feature Selection</span><span class="tag">Boosting Model</span>
-          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span><span class="tag">Lightweight</span><span class="tag">ML-Ops</span>
+          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span>
+          <span class="tag">NSFW Detection</span><span class="tag">nsfwjs</span><span class="tag">ML-Ops</span>
         </div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI/pillsang-chrome-extension" target="_blank">⬡ GitHub</a>
@@ -793,7 +865,7 @@
     </div>
 
     <div style="height:2rem;"></div>
-    <p style="font-family:'Pretendard',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin-top:3rem;margin-bottom:1rem;border-bottom:2px solid var(--accent);display:inline-block;padding-bottom:0.25rem;" class="reveal">Patents</p>
+    <p class="section-label reveal" style="margin-top:3rem;">Patents</p>
     <div class="patent-wrap reveal">
       <div class="patent-row">
         <div>
