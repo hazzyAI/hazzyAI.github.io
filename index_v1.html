@@ -345,16 +345,15 @@
       </div>
 
       <!-- 필상 크롬 확장 -->
-      <!-- TODO: 서비스명 확정 시 "필상 AI 유해사이트 탐지" 수정 -->
       <div class="project-card card-chrome reveal">
         <div>
-          <span class="project-badge badge-soon">🔵 출시 예정 · Chrome Extension</span>
+          <span class="project-badge badge-live">🟢 스토어 출시 · Chrome Extension</span>
           <h3 class="project-title">필상 AI 유해사이트 탐지</h3>
-          <p class="project-subtitle">Chrome Web Store 심사 제출 완료 · 출시 준비 중</p>
+          <p class="project-subtitle">Chrome Web Store 출시 완료</p>
         </div>
-        <span class="solo-badge">⚡ 모델 설계부터 배포까지 단독 수행</span>
+        <span class="solo-badge">⚡ 기획 · 모델 설계 · 개발 · 출시 전 과정 단독 수행</span>
         <p class="project-desc">
-          사용자가 사이트 접속을 할 때마다 URL을 실시간으로 분석해 유해 사이트를 자동 감지하는 Chrome 확장프로그램입니다. 서버 DB 조회(블랙리스트/화이트리스트)와 온디바이스 AI 모델 추론을 결합한 2단계 탐지 구조로 설계했으며, 기획부터 Chrome Web Store 심사 제출까지 단독 개발했습니다.
+          사이트 접속 시마다 URL을 실시간으로 분석해 유해 사이트를 자동 감지하는 Chrome 확장프로그램입니다. 서버 DB 조회(블랙리스트/화이트리스트)와 온디바이스 AI 추론을 결합한 2단계 탐지 구조로 피싱 사이트를 탐지하며, NSFW 이미지 분류 모델을 탑재해 웹 페이지 내 성인 이미지를 자동으로 블러 처리합니다.
         </p>
         <!-- 케이스별 스크린샷 (전체 11장) -->
         <div class="pipeline-box" style="display:flex;flex-direction:column;gap:0.9rem;">
@@ -443,7 +442,7 @@
                 <div class="step-arrow">↓</div>
                 <div class="pipeline-step step-branch-no">AI 모델 추론</div>
                 <div class="step-arrow">↓</div>
-                <div class="pipeline-step step-branch-no">DB 적재 (신규 URL 자동 등록)</div>
+                <div class="pipeline-step step-branch-no">DB 적재 (수집 → 라벨링 → 모델 재학습)</div>
                 <div class="step-arrow">↓</div>
                 <div class="pipeline-step step-end">위험도별 사용자 표시</div>
               </div>
@@ -453,10 +452,12 @@
         <div class="project-metrics">
           <div class="metric"><span class="metric-val" style="font-size:1rem;">2단계</span><span class="metric-label">서버 조회 + 온디바이스</span></div>
           <div class="metric"><span class="metric-val" style="font-size:1rem;">MV3</span><span class="metric-label">Manifest V3 기반</span></div>
+          <div class="metric"><span class="metric-val" style="font-size:0.88rem;">NSFW</span><span class="metric-label">이미지 자동 블러</span></div>
         </div>
         <div class="tag-list">
           <span class="tag">Feature Extraction</span><span class="tag">Feature Selection</span><span class="tag">Boosting Model</span>
-          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span><span class="tag">Lightweight</span><span class="tag">ML-Ops</span>
+          <span class="tag">Chrome Extension</span><span class="tag">Manifest V3</span><span class="tag">ONNX Runtime</span>
+          <span class="tag">NSFW Detection</span><span class="tag">nsfwjs</span><span class="tag">ML-Ops</span>
         </div>
         <div class="card-btn-row">
           <a class="github-btn" href="https://github.com/hazzyAI/pillsang-chrome-extension" target="_blank">⬡ GitHub</a>
