@@ -74,6 +74,12 @@
     .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag { font-size: 0.864rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; background: var(--tag-bg); color: var(--tag-text); padding: 0.22rem 0.55rem; border-radius: 4px; }
     .note-muted { font-size: 0.936rem; color: var(--ink-light); font-style: italic; }
+    .screenshot-strip { display: flex; gap: 0.65rem; overflow-x: auto; padding: 0.25rem 0 0.6rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+    .screenshot-strip::-webkit-scrollbar { height: 4px; }
+    .screenshot-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .screenshot-item { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; flex-shrink: 0; }
+    .screenshot-item img { width: 115px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.10); border: 1px solid var(--border); display: block; }
+    .screenshot-cap { font-size: 0.78rem; font-weight: 600; color: var(--ink-muted); white-space: nowrap; }
     .pipeline-box { padding: 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
     .pipeline-label { font-family: 'Pretendard', sans-serif; font-size: 1.104rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
     .pipeline-steps { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -351,6 +357,28 @@
         <p class="project-desc">
           접속하는 모든 URL을 실시간으로 분석해 유해 사이트를 탐지하고, 웹 페이지 내 성인 콘텐츠를 자동으로 블러 처리합니다. Google 계정 연동 · 우클릭 링크 즉시 탐지 · 위험도별 동적 아이콘 등 실사용에 최적화된 UX를 기획부터 Chrome Web Store 출시까지 전 과정 단독 수행했습니다.
         </p>
+        <div class="screenshot-strip">
+          <div class="screenshot-item">
+            <img src="pillsang-chrome-extension/assets/screenshots/02.png" alt="안전 탐지">
+            <span class="screenshot-cap">🟢 안전</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="pillsang-chrome-extension/assets/screenshots/07.png" alt="유해 사이트">
+            <span class="screenshot-cap">🔴 유해 사이트</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="pillsang-chrome-extension/assets/screenshots/04.png" alt="자동 알림">
+            <span class="screenshot-cap">⚠️ 자동 알림</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="pillsang-chrome-extension/assets/screenshots/08.png" alt="탐지 히스토리">
+            <span class="screenshot-cap">📊 히스토리</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="pillsang-chrome-extension/assets/screenshots/11.png" alt="설정">
+            <span class="screenshot-cap">⚙️ 설정</span>
+          </div>
+        </div>
         <div class="pipeline-box">
           <p class="pipeline-label">전체 예측 로직</p>
           <div class="pipeline-steps">
